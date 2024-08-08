@@ -19,12 +19,11 @@ VueloAsignado INT
 
 
 
-
 CREATE TABLE Aeropuertos(
 NumAeropuerto TINYINT PRIMARY KEY IDENTITY(1,1),
 Provincia VARCHAR(30),
+HasFlight BIT
 );
-
 
 
 
@@ -36,6 +35,7 @@ Asistente1 INT, /*Inserted via code*/
 Asistente2 INT, /*Inserted via code*/
 Partida TINYINT, /*From where the flight starts*/
 Destino VARCHAR(30), /*To which province the flight is going*/
+Peso INT
 
 FOREIGN KEY (Partida) REFERENCES Aeropuertos (NumAeropuerto),
 FOREIGN KEY (Capitán) REFERENCES Personel (CedulaPersonel),
@@ -64,8 +64,14 @@ ApellidoCliente1 VARCHAR(20) NOT NULL,
 ApellidoCliente2 VARCHAR(20) NOT NULL,
 Telefono VARCHAR(20) NOT NULL,
 Correo VARCHAR (150),
-Sexo CHAR NOT NULL
+Sexo CHAR NOT NULL,
+PesoMaletas TINYINT NOT NULL
 );
+
+
+--ALTER TABLE Clientes
+--ADD PesoMaletas TINYINT DEFAULT 0;
+
 
 
 
